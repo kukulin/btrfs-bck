@@ -184,10 +184,10 @@ bckrot=${bckrot:-${pf}_ro}
 # shlock (from inn) does the right thing and grabs a lock for a dead process
 # (it checks the PID in the lock file and if it's not there, it
 # updates the PID with the value given to -p)
-if ! shlock -p $$ -f $lock; then
-    echo "$lock held for $PROG, quitting" >&2
-    exit
-fi
+#if ! shlock -p $$ -f $lock; then
+#    echo "$lock held for $PROG, quitting" >&2
+#    exit
+#fi
 
 if [[ -z "$init" ]]; then
     test -e "${vol}${pf}_last" \

@@ -193,7 +193,7 @@ bckrot=${bckrot:-${pf}_ro}
 if [[ -z "$init" ]]; then
     test -e "${vol}${pf}_last" \
 	|| die "Cannot sync $vol, ${vol}${pf}_last missing. Try --init?"
-    src_snap="$(readlink -e ${vol}${pf}_last)"
+    src_snap="$(readlink -f ${vol}${pf}_last)"
 fi
 src_newsnap="${vol}${pf}_ro.$DATE"
 src_newsnaprw="${vol}${pf}_rw.$DATE"

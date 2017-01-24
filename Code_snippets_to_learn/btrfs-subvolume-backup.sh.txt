@@ -219,7 +219,8 @@ if [[ -n "$init" ]]; then
 else
     #echo "$src_snap" "$src_newsnap"
     if [[ -z "$ssh" ]]; then
-	ionice -c3 btrfs send -p "$src_snap" "$src_newsnap" | ionice -c3 btrfs receive "$dest_pool/$(dirname $src_newsnap)"\
+	#removed ionice -c3 before each btrfs on next line
+	btrfs send -p "$src_snap" "$src_newsnap" | btrfs receive "$dest_pool/$(dirname $src_newsnap)"\
 	    || failed=1
     else
 	# When backing up over ssh, the network should throttle the IO enough, no need to add a 

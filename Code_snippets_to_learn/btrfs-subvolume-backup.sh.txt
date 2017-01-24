@@ -188,7 +188,8 @@ bckrot=${bckrot:-${pf}_ro}
 #    echo "$lock held for $PROG, quitting" >&2
 #    exit
 #fi
-
+ 
+ 
 if [[ -z "$init" ]]; then
     test -e "${vol}${pf}_last" \
 	|| die "Cannot sync $vol, ${vol}${pf}_last missing. Try --init?"

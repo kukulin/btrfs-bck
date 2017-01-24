@@ -76,7 +76,7 @@ die () {
     if echo $msg | grep -q 'Error line .* with status'; then
 	line=`echo $msg | sed 's/.*Error line \(.*\) with status.*/\1/'`
 	echo " DIE: Code dump:" >&2
-	nl -ba $0 | grep -5 "\b$line\b" >&2
+	awk '{ print FNR " " $0 }' $0 | grep -5 "\b$line\b" >&2
     fi
     
     exit 1
